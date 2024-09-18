@@ -6,23 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Auctionary - Bid Smart, Win Big</title>
     <link rel="stylesheet" href="/css/styles.css" />
-    <script src="script.js" defer></script>
+    <script src="/script.js" defer></script>
     <script src="/carousel.js" defer></script>
-  </head>
+    <script src="/search.js" defer></script>
   <body>
     <!-- Header -->
     <header>
-      <div class="logo">
-        <a href="index.html">
-          <img src="icons/auctionary.svg" alt="Auctionary Logo" />
-        </a>
-      </div>
-      <div class="nav">
-        <input type="text" placeholder="Search auctions..." />
-        <button>Login</button>
-        <button>Register</button>
-      </div>
-    </header>
+        <div class="logo">
+          <a href="index.html">
+            <img src="icons/auctionary.svg" alt="Auctionary Logo" />
+          </a>
+        </div>
+        <div class="nav">
+          <input type="text" id="search-input" placeholder="Search auctions..." />
+          <button id="search-button">Search</button>
+          <button onclick="window.location.href='login.html'">Login</button>
+          <button onclick="window.location.href='register.html'">Register</button>
+        </div>
+      </header>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -35,6 +36,7 @@
         Start Bidding
       </button>
     </section>
+    
 
     <!-- Featured Auctions -->
     <section class="featured-auctions">
@@ -47,6 +49,8 @@
       <button id="next" class="carousel-btn next-btn">Next</button>
       <!-- Next button -->
     </section>
+
+    <div class="auction-items"></div>
 
     <!-- Footer -->
     <footer>

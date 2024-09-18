@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Auctionary - Register</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="register.js" defer></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <a href="index.html">
+          <img src="icons/auctionary.svg" alt="Auctionary Logo" />
+        </a>
+      </div>
+      <div class="nav">
+        <input type="text" id="search-input" placeholder="Search auctions..." />
+        <button id="search-button">Search</button>
+        <button onclick="window.location.href='login.html'">Login</button>
+        <button onclick="window.location.href='register.html'">Register</button>
+      </div>
+    </header>
+
+    <!-- Registration Section -->
+    <section class="register-section">
+      <h2>Register</h2>
+      <form id="register-form">
+        <input type="text" id="username" placeholder="Username" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <button type="submit">Register</button>
+      </form>
+      <div id="register-message"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 Auctionary. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
