@@ -1,50 +1,43 @@
-document.getElementById('register-form').addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent form from submitting
-
-    const emailInput = document.getElementById('email').value;
-    const passwordInput = document.getElementById('password').value;
-    const confirmPasswordInput = document.getElementById('confirm-password').value;
-    const errorMessage = document.getElementById('error-message');
-
-    // Email validation for @noroff.no or @stud.noroff.no
-    if (!emailInput.endsWith('@noroff.no') && !emailInput.endsWith('@stud.noroff.no')) {
-        errorMessage.textContent = 'Please use a valid @noroff.no or @stud.noroff.no email address to register.';
-        return;
+document.getElementById('register-form').addEventListener('submit', async function (event) {
+    event.preventDefault(); // Prevent form submission
+  
+    // Get form values
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+  
+    // Validate email domain (only allow noroff.no and stud.noroff.no)
+    const emailPattern = /@(?:noroff\.no|stud\.noroff\.no)$/;
+    if (!emailPattern.test(email)) {
+      alert('Please use a valid Noroff email address.');
+      return;
     }
-
-    // Password confirmation check
-    if (passwordInput !== confirmPasswordInput) {
-        errorMessage.textContent = 'Passwords do not match.';
-        return;
-    }
-
-    // If all checks pass, clear any error message
-    errorMessage.textContent = '';
-
-   
-    const formData = {
-        email: emailInput,
-        password: passwordInput,
+  
+    const registrationData = {
+      name: username,
+      email: email,
+      password: password,
     };
-
-    fetch('https://your-api-endpoint/register', {
+  
+    try {
+      const response = await fetch('https://v2.api.noroff.dev/auth/register', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                window.location.href = 'login.html'; // Redirect to login page on successful registration
-            } else {
-                errorMessage.textContent = data.message || 'An error occurred during registration.';
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            errorMessage.textContent = 'Failed to register. Please try again later.';
-        });
-});
-
+        body: JSON.stringify(registrationData),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to register.');
+      }
+  
+      const result = await response.json();
+      alert('Registration successful! You can now log in.');
+      window.location.href = 'login.html'; // Redirect to login page after successful registration
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Error registering: ' + error.message);
+    }
+  });
+  

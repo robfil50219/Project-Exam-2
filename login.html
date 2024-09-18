@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Login - Auctionary</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="login.js" defer></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <a href="index.html">
+          <img src="icons/auctionary.svg" alt="Auctionary Logo" />
+        </a>
+      </div>
+      <div class="nav">
+        <button onclick="window.location.href='register.html'">Register</button>
+      </div>
+    </header>
+
+    <!-- Login Form Section -->
+    <section class="login-section">
+      <h2>Login to Auctionary</h2>
+      <form id="login-form">
+        <div>
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+        <button type="submit">Login</button>
+        <p id="error-message" class="error"></p>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 Auctionary. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
