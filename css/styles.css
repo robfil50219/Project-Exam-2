@@ -20,14 +20,16 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #007BFF;
+  background-color: rgba(104, 126, 130, 1);
   padding: 20px;
   color: white;
 }
 
 header .logo img {
-  height: 50px;
+  height: 120px;
+  width: auto; 
 }
+
 
 header .nav input {
   padding: 8px;
@@ -46,14 +48,18 @@ header .nav button {
 /* Hero Section */
 .hero {
   text-align: center;
-  background-color: #f1f1f1;
+  background-image: url('/icons/DALL·E\ 2024-09-13\ 15.01.34\ -\ A\ professional\ image\ of\ a\ man\ in\ a\ suit\ bidding\ at\ an\ auction\,\ holding\ up\ a\ bid\ paddle.\ The\ man\ is\ standing\ confidently\ with\ a\ calm\ expression\,\ surrou.webp'); 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
   padding: 100px 20px;
+  color:#FF6B6B; 
   flex-grow: 1;
 }
 
 .hero h1 {
   font-size: 48px;
-  color: #007BFF;
+  color: #686868;
 }
 
 .hero button {
