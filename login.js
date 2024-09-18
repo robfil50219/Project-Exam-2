@@ -1,44 +1,40 @@
-document.getElementById('login-form').addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent default form submission
+document.getElementById('login-form').addEventListener('submit', async function (event) {
+    event.preventDefault(); // Prevent form submission
   
-    const emailInput = document.getElementById('email').value;
-    const passwordInput = document.getElementById('password').value;
-    const errorMessage = document.getElementById('error-message');
-  
-    // Basic email and password validation
-    if (!emailInput.includes('@noroff.no') && !emailInput.includes('@stud.noroff.no')) {
-      errorMessage.textContent = 'Please use a valid @noroff.no or @stud.noroff.no email address.';
-      return;
-    }
-  
-    if (passwordInput.length < 6) {
-      errorMessage.textContent = 'Password must be at least 6 characters long.';
-      return;
-    }
+    // Get form values
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
   
     const loginData = {
-      email: emailInput,
-      password: passwordInput,
+      email: email,
+      password: password,
     };
   
-    fetch('https://your-api-endpoint/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(loginData),
-    })
-      .then(response => response.json())
-      .then(data => {
-        if (data.success) {
-          window.location.href = 'index.html'; // Redirect to homepage on success
-        } else {
-          errorMessage.textContent = data.message || 'Invalid email or password.';
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        errorMessage.textContent = 'Login failed. Please try again later.';
+    try {
+      const response = await fetch('https://v2.api.noroff.dev/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(loginData),
       });
+  
+      if (!response.ok) {
+        throw new Error('Login failed. Please check your credentials.');
+      }
+  
+      const result = await response.json();
+      const accessToken = result.data.accessToken;
+  
+      // Store the accessToken in localStorage (or sessionStorage)
+      localStorage.setItem('accessToken', accessToken);
+  
+      alert('Login successful!');
+      window.location.href = 'index.html'; // Redirect to main page after successful login
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Error logging in: ' + error.message);
+    }
   });
+  
   
