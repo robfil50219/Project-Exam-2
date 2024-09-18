@@ -155,17 +155,36 @@ footer {
   height: auto;
 }
 
-/* Buttons for carousel control */
-.carousel-controls {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
+/* Carousel Buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #FF6B6B;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  z-index: 10; 
 }
 
-.carousel-controls button {
-  padding: 10px;
-  background-color: #FF6B6B;
-  border: none;
-  color: white;
-  cursor: pointer;
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px; 
+}
+
+
+.featured-auctions {
+  position: relative; 
+}
+
+.auction-items {
+  display: flex;
+  overflow: hidden; 
+  width: 100%;
 }

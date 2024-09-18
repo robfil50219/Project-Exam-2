@@ -1,66 +1,55 @@
-let currentSlide = 0;
-const numOfSlides = 8; // Show 8 listings
+async function fetchListings() {
+    try {
+        const response = await fetch('https://v2.api.noroff.dev/auction/listings');
+        const result = await response.json();
+        const listings = result.data.slice(0, 8); // Limit to 8 listings
+    
+        const auctionItemsContainer = document.querySelector('.auction-items');
+        auctionItemsContainer.innerHTML = ''; // Clear previous listings
+    
+        listings.forEach(listing => {
+            const auctionItem = `
+                <div class="auction-item">
+                    <h3>${listing.title}</h3>
+                    <img src="${listing.media[0]?.url || 'default-image.jpg'}" alt="${listing.media[0]?.alt || 'No Image'}" />
+                    <p>${listing.description}</p>
+                    <p>Ends at: ${new Date(listing.endsAt).toLocaleString()}</p>
+                    <p>Bids: ${listing._count.bids}</p>
+                    <button onclick="placeBid('${listing.id}')">Place Bid</button>
+                </div>
+            `;
+            auctionItemsContainer.innerHTML += auctionItem;
+        });
 
-async function fetchFeaturedListings() {
-  try {
-    const response = await fetch('https://v2.api.noroff.dev/auction/listings');
-    const result = await response.json();
-    const listings = result.data;
+        initializeCarousel(); // Initialize the carousel after listings are rendered
+    } catch (error) {
+        console.error('Error fetching listings:', error);
+    }
+}
 
-    const carousel = document.querySelector('.carousel');
-    carousel.innerHTML = ''; // Clear previous listings
+function initializeCarousel() {
+    const carouselContainer = document.querySelector('.auction-items');
+    let currentIndex = 0;
+    const items = carouselContainer.querySelectorAll('.auction-item');
+    const totalItems = items.length;
 
-    // Limit to 8 listings for the carousel
-    const featuredListings = listings
-      .filter(listing => listing.media.length > 0 && new Date(listing.endsAt) > new Date())
-      .slice(0, numOfSlides);
-
-    if (featuredListings.length === 0) {
-      carousel.innerHTML = '<p>No featured listings available.</p>';
+    function showItem(index) {
+        items.forEach((item, i) => {
+            item.style.display = i === index ? 'block' : 'none';
+        });
     }
 
-    featuredListings.forEach(listing => {
-      const auctionItem = `
-        <div class="carousel-item">
-          <h3>${listing.title}</h3>
-          <img src="${listing.media[0]?.url || 'default-image.jpg'}" alt="${listing.media[0]?.alt || 'No Image'}" />
-          <p>${listing.description || 'No description available.'}</p>
-          <p>Ends at: ${new Date(listing.endsAt).toLocaleString()}</p>
-          <p>Bids: ${listing._count.bids}</p>
-          <button onclick="placeBid('${listing.id}')">Place Bid</button>
-        </div>
-      `;
-      carousel.innerHTML += auctionItem;
+    document.querySelector('#next').addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % totalItems;
+        showItem(currentIndex);
     });
 
-    // Initialize the first slide
-    showSlide(currentSlide);
-  } catch (error) {
-    console.error('Error fetching featured listings:', error);
-    document.querySelector('.carousel').innerHTML = '<p>Error loading listings. Please try again later.</p>';
-  }
+    document.querySelector('#prev').addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+        showItem(currentIndex);
+    });
+
+    showItem(currentIndex); // Show the first item on page load
 }
 
-function showSlide(index) {
-  const slides = document.querySelectorAll('.carousel-item');
-  const totalSlides = slides.length;
-  if (index >= totalSlides) currentSlide = 0;
-  if (index < 0) currentSlide = totalSlides - 1;
-
-  const carousel = document.querySelector('.carousel');
-  carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
-}
-
-// Add event listeners for carousel controls (if needed)
-document.querySelector('#next-slide').addEventListener('click', () => {
-  currentSlide++;
-  showSlide(currentSlide);
-});
-
-document.querySelector('#prev-slide').addEventListener('click', () => {
-  currentSlide--;
-  showSlide(currentSlide);
-});
-
-// Load featured listings on page load
-document.addEventListener('DOMContentLoaded', fetchFeaturedListings);
+document.addEventListener('DOMContentLoaded', fetchListings);
