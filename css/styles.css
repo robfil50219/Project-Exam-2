@@ -1,66 +1,77 @@
+/* CSS File: /css/styles.css */
+
 /* General Styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;  
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Wrapper for the whole page layout */
 body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #ef0000;
-    color: #333;
-  }
-  
-  /* Header Styles */
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background: #007BFF;
-  }
-  
-  .logo img {
-    height: 50px;
-  }
-  
-  .nav input {
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-  }
-  
-  .nav button {
-    padding: 10px 20px;
-    background: #fff;
-    border: none;
-    margin-left: 10px;
-    cursor: pointer;
-  }
-  
-  /* Hero Section */
-  .hero {
-    background: url('background.jpg') no-repeat center center/cover;
-    text-align: center;
-    padding: 100px 20px;
-    color: white;
-  }
-  
-  .hero h1 {
-    font-size: 48px;
-  }
-  
-  .hero button {
-    padding: 10px 30px;
-    background: #FF6B6B;
-    border: none;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  /* Footer Styles */
-  footer {
-    text-align: center;
-    padding: 20px;
-    background: #007BFF;
-    color: white;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;  
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #007BFF;
+  padding: 20px;
+  color: white;
+}
+
+header .logo img {
+  height: 50px;
+}
+
+header .nav input {
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+}
+
+header .nav button {
+  padding: 8px 16px;
+  margin-left: 10px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  background-color: #f1f1f1;
+  padding: 100px 20px;
+  flex-grow: 1;
+}
+
+.hero h1 {
+  font-size: 48px;
+  color: #007BFF;
+}
+
+.hero button {
+  padding: 10px 30px;
+  background-color: #FF6B6B;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+/* Footer */
+footer {
+  background-color: #333333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  margin-top: auto;  
+}
