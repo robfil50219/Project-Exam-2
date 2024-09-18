@@ -59,7 +59,7 @@ header .nav button {
 
 .hero h1 {
   font-size: 48px;
-  color: #686868;
+  color: #FF6B6B;
 }
 
 .hero button {
@@ -131,4 +131,41 @@ footer {
 
 .auction-item button:hover {
   background-color: #FF4B4B;
+}
+
+
+/* Carousel Styles */
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%; 
+  box-sizing: border-box;
+}
+
+.carousel img {
+  width: 100%;
+  height: auto;
+}
+
+/* Buttons for carousel control */
+.carousel-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.carousel-controls button {
+  padding: 10px;
+  background-color: #FF6B6B;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
