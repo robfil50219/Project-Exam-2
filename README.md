@@ -1,3 +1,5 @@
+
+
 # Auctionary - Bid Smart, Win Big
 
 Auctionary is an auction-based web platform where users can browse, bid, and list auction items seamlessly. This project integrates a modern auction listing functionality, with a carousel to highlight featured items and an intuitive search system to find relevant listings.
