@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile - Auctionary</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/auth.js" defer></script>
+    <script src="/profile.js" defer></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <a href="index.html">
+          <img src="icons/auctionary.svg" alt="Auctionary Logo" />
+        </a>
+      </div>
+      <div class="nav">
+        <button id="logout-btn">Logout</button>
+      </div>
+    </header>
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+      <div class="profile-info">
+        <img id="profile-avatar" src="default-avatar.jpg" alt="User Avatar" />
+        <h2 id="profile-name">User Name</h2>
+        <p id="profile-email">user@example.com</p>
+        <p>Total Credits: <span id="profile-credits">1000</span></p>
+      </div>
+
+      <!-- Edit Profile Form -->
+      <div class="edit-profile">
+        <h3>Edit Profile</h3>
+        <form id="edit-profile-form">
+          <input type="text" id="edit-username" placeholder="New Username" />
+          <input type="email" id="edit-email" placeholder="New Email" />
+          <input type="url" id="edit-avatar" placeholder="Avatar URL" />
+          <button type="submit">Save Changes</button>
+        </form>
+        <div id="profile-update-message"></div>
+      </div>
+
+      <div class="profile-listings">
+        <h3>Your Active Listings</h3>
+        <div class="auction-items" id="user-listings">
+          <!-- User listings will be dynamically inserted here -->
+        </div>
+      </div>
+
+      <div class="profile-bids">
+        <h3>Your Recent Bids</h3>
+        <div id="user-bids">
+          <!-- User bids will be dynamically inserted here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 Auctionary. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

@@ -10,30 +10,31 @@
     <script src="/carousel.js" defer></script>
     <script src="/search.js" defer></script>
     <script src="/auth.js" defer></script>
+  </head>
   <body>
     <!-- Header -->
     <header>
-        <div class="logo">
-          <a href="index.html">
-            <img src="icons/auctionary.svg" alt="Auctionary Logo" />
-          </a>
-        </div>
-        <div class="nav">
-          <input type="text" id="search-input" placeholder="Search auctions..." />
-          <button id="search-btn">Search</button>
-          <button id="login-btn" onclick="window.location.href='login.html'">
-            Login
-          </button>
-          <button
-            id="register-btn"
-            onclick="window.location.href='register.html'"
-          >
-            Register
-          </button>
-          <button id="logout-btn" style="display: none">Logout</button>
-          <!-- Initially hidden -->
-        </div>
-      </header>
+      <div class="logo">
+        <a href="index.html">
+          <img src="icons/auctionary.svg" alt="Auctionary Logo" />
+        </a>
+      </div>
+      <div class="nav">
+        <input type="text" id="search-input" placeholder="Search auctions..." />
+        <button id="search-btn">Search</button>
+        <button id="login-btn" onclick="window.location.href='login.html'">
+          Login
+        </button>
+        <button
+          id="register-btn"
+          onclick="window.location.href='register.html'"
+        >
+          Register
+        </button>
+        <button id="logout-btn" style="display: none">Logout</button>
+        <!-- Initially hidden -->
+      </div>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -46,7 +47,6 @@
         Start Bidding
       </button>
     </section>
-    
 
     <!-- Featured Auctions -->
     <section class="featured-auctions">
