@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "test": "jest",          
+    "cypress:open": "cypress open", 
+    "cypress:run": "cypress run"   
+  },
   "dependencies": {
     "bootstrap": "^5.3.3"
   },
@@ -23,3 +28,4 @@
     "webpack-dev-server": "^5.1.0"
   }
 }
+
