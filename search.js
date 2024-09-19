@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('search-button').addEventListener('click', searchListings);
+    document.getElementById('search-btn').addEventListener('click', searchListings);
   
     // Enable search by pressing "Enter" key
     document.getElementById('search-input').addEventListener('keypress', function (e) {
