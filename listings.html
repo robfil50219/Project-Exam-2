@@ -6,6 +6,8 @@
     <title>All Listings - Auctionary</title>
     <link rel="stylesheet" href="/css/styles.css" />
     <script src="/script.js" defer></script>
+    <script src="/bid.js" defer></script>
+    <script src="/search.js" defer></script>
   </head>
   <body>
     <header>
@@ -15,9 +17,10 @@
         </a>
       </div>
       <div class="nav">
-        <input type="text" placeholder="Search auctions..." />
-        <button>Login</button>
-        <button>Register</button>
+        <input type="text" id="search-input" placeholder="Search auctions..." />
+        <button id="search-button">Search</button>
+        <button onclick="window.location.href='login.html'">Login</button>
+        <button onclick="window.location.href='register.html'">Register</button>
       </div>
     </header>
 
