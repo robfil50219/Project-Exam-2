@@ -81,8 +81,14 @@ header .nav button:hover {
 
 .hero h1 {
   font-size: 48px;
-  color: var(--secondary-color);
+  color: #FFFFFF; 
+  background-color: rgba(0, 0, 0, 0.6); 
+  padding: 10px 20px; 
+  border-radius: 5px; 
+  display: inline-block; 
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
 }
+
 
 .hero button {
   padding: 10px 30px;
