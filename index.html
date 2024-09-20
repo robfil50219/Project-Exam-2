@@ -12,7 +12,6 @@
     <script src="/auth.js" defer></script>
   </head>
   <body>
-    <!-- Header -->
     <header>
       <div class="logo">
         <a href="index.html">
@@ -22,6 +21,7 @@
       <div class="nav">
         <input type="text" id="search-input" placeholder="Search auctions..." />
         <button id="search-btn">Search</button>
+
         <button id="login-btn" onclick="window.location.href='login.html'">
           Login
         </button>
@@ -31,8 +31,16 @@
         >
           Register
         </button>
+
+        <!-- Profile and Logout Buttons (Initially Hidden) -->
+        <button
+          id="profile-btn"
+          style="display: none"
+          onclick="window.location.href='profile.html'"
+        >
+          <img id="profile-avatar" class="profile-pic" alt="Profile" />
+        </button>
         <button id="logout-btn" style="display: none">Logout</button>
-        <!-- Initially hidden -->
       </div>
     </header>
 
