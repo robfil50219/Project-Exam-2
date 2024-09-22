@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create New Listing</title>
     <link rel="stylesheet" href="/css/styles.css" />
-    <script src="/new-listing.js" defer></script>
+    <script src="/new-listings.js" defer></script>
   </head>
   <body>
     <header>
@@ -31,6 +31,7 @@
           placeholder="Description"
           required
         ></textarea>
+        <input type="text" id="tags" placeholder="Tags (comma separated)" />
         <input type="text" id="media" placeholder="Image URL" />
         <input type="datetime-local" id="end-date" required />
         <button type="submit">Create Listing</button>
