@@ -1,11 +1,14 @@
 {
   "scripts": {
-    "test": "jest",          
-    "cypress:open": "cypress open", 
-    "cypress:run": "cypress run"   
+    "test": "jest",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "build": "webpack --mode production",
+    "start": "webpack serve --mode development --open"
   },
   "dependencies": {
-    "bootstrap": "^5.3.3"
+    "bootstrap": "^5.3.3",
+    "path-browserify": "^1.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
@@ -28,4 +31,3 @@
     "webpack-dev-server": "^5.1.0"
   }
 }
-
