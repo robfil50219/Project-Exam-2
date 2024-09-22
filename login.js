@@ -49,22 +49,25 @@ document.getElementById('logout-btn').addEventListener('click', function() {
   window.location.href = 'login.html'; 
 });
 
-// Function to check login status and update the UI
 function checkLoginStatus() {
-  const token = localStorage.getItem('authToken');
-
-  if (token) {
-      // User is logged in, hide login/register buttons and show logout button
+    const token = localStorage.getItem('authToken');
+    if (token) {
       document.getElementById('login-btn').style.display = 'none';
       document.getElementById('register-btn').style.display = 'none';
       document.getElementById('logout-btn').style.display = 'block';
-  } else {
-      // User is not logged in, show login/register buttons and hide logout button
+      document.getElementById('profile-btn').style.display = 'block';
+      document.getElementById('create-listing-btn').style.display = 'block'; // Show create listing button
+    } else {
       document.getElementById('login-btn').style.display = 'block';
       document.getElementById('register-btn').style.display = 'block';
       document.getElementById('logout-btn').style.display = 'none';
+      document.getElementById('profile-btn').style.display = 'none';
+      document.getElementById('create-listing-btn').style.display = 'none'; // Hide create listing button
+    }
   }
-}
+  
+  document.addEventListener('DOMContentLoaded', checkLoginStatus);
+  
 
 // Call this function on page load to check login status
 document.addEventListener('DOMContentLoaded', checkLoginStatus);

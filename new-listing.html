@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create New Listing</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/new-listing.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="index.html">
+          <img src="icons/auctionary.svg" alt="Auctionary Logo" />
+        </a>
+      </div>
+      <div class="nav">
+        <button id="profile-btn" onclick="window.location.href='profile.html'">
+          Profile
+        </button>
+        <button id="logout-btn" style="display: none">Logout</button>
+      </div>
+    </header>
+
+    <section class="new-listing-section">
+      <h2>Create New Listing</h2>
+      <form id="new-listing-form">
+        <input type="text" id="title" placeholder="Title" required />
+        <textarea
+          id="description"
+          placeholder="Description"
+          required
+        ></textarea>
+        <input type="text" id="media" placeholder="Image URL" />
+        <input type="datetime-local" id="end-date" required />
+        <button type="submit">Create Listing</button>
+      </form>
+      <div id="listing-message"></div>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Auctionary. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
