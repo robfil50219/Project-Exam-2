@@ -1,84 +1,74 @@
+Auctionary - Bid Smart, Win Big
+Auctionary is a user-friendly auction platform where individuals can browse, bid, and list auction items with ease. The platform showcases auctions through a dynamic carousel of featured items, includes a comprehensive search system, and allows users to create new listings.
 
+Features
+Featured Auctions Carousel: Highlighted items are displayed in a carousel, making it easy for users to browse.
+Search Functionality: Users can search for auctions using keywords, with real-time filtering of results.
+Bid Smart: Users can place bids on active auction listings.
+Create New Listings: Registered users can create new auction listings through a simple form.
+Responsive Design: Optimized for various screen sizes, ensuring seamless access across all devices.
+Technologies Used
+HTML5: Structure and layout of the platform.
+CSS3: Styling for a responsive and modern look.
+JavaScript (ES6+): Handles dynamic content, interactions, and API integrations.
+API: The application utilizes the Noroff Auction API for fetching and creating auction listings.
+Netlify: For deployment and hosting.
+Getting Started
+Prerequisites
+A modern web browser.
+Internet access to connect with the external API.
+Installation
+Clone the repository:
 
-# Auctionary - Bid Smart, Win Big
-
-Auctionary is an auction-based web platform where users can browse, bid, and list auction items seamlessly. This project integrates a modern auction listing functionality, with a carousel to highlight featured items and an intuitive search system to find relevant listings.
-
-## Features
-- **Carousel** for showcasing featured auction listings.
-- **Search functionality** to help users filter auctions by keyword.
-- **Start Bidding button** that redirects to all listings.
-- **Dynamic auction listings** fetched from an external API.
-- **Create new auction listing functionality**.
-- **Responsive Design** for accessibility on different devices.
-
-## Technologies Used
-- **HTML5** for markup.
-- **CSS3** for styling.
-- **JavaScript (ES6+)** for dynamic functionality.
-- **External API** for auction data: `https://v2.api.noroff.dev/auction/listings`
-- **Netlify** for deployment.
-
-## Getting Started
-
-### Prerequisites
-Make sure you have a modern web browser installed. You will also need an internet connection to fetch data from the API.
-
-### Installation
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/your-username/auctionary.git
-   cd auctionary
-2. Open the index.html file in your browser to run the project.
-
-
-   File Structure
-├── css/
-│   └── styles.css           # Styling for the app
-├── js/
-│   ├── carousel.js          # Logic for carousel
-│   ├── search.js            # Logic for searching listings
-│   ├── api.js               # API interaction logic
-│   └── script.js            # Main app logic
-├── index.html               # Main webpage structure
-├── README.md                # Project documentation
-└── assets/
-    └── icons/               # Icons used in the project
-
+bash
+Kopier kode
+git clone https://github.com/your-username/auctionary.git
+cd auctionary
+Open the index.html file in your browser to start the application. 
 API Integration
-All listings are fetched dynamically from the Noroff Auction API. We make use of the following endpoints:
+The application connects to the Noroff Auction API for auction data. The following endpoints are used:
 
-GET /auction/listings - Fetches all auction listings.
-POST /auction/listings - Allows creating new listings.
-For more information, visit the Noroff API documentation.
+GET /auction/listings: Fetches all active listings.
+POST /auction/listings: Allows users to create a new auction listing.
+For more details on the API, visit the Noroff API Documentation.
 
 Functionality
 Carousel
-The carousel feature dynamically loads up to 8 featured auction items and allows users to navigate between them using "Previous" and "Next" buttons.
+The carousel dynamically displays up to 8 featured auction items. Users can navigate through them using "Previous" and "Next" buttons.
 
 Search
-Users can search for auctions by title or description. The results are dynamically displayed based on their search input.
+A search bar allows users to filter auctions by title or description, with results dynamically updated based on user input.
 
 Bidding
-Each auction listing has a "Place Bid" button, which will allow users to bid on the item (functionality for handling bidding logic should be expanded in future iterations).
+Each auction listing provides a "Place Bid" button, allowing users to bid on available items. Future updates will expand on the bidding functionality.
 
 Create New Listing
-Users can create new auction listings by filling out a form (available on the platform) and submitting the necessary details.
+Registered users can create new auction listings through an easy-to-use form, providing details like title, description, and an image URL.
 
 Deployment
-This project is deployed using Netlify. You can view the live project at:
-
-https://auctionarygo.netlify.app
+This project is deployed on Netlify. You can visit the live version here: Auctionary.
 
 Contributing
-Fork the repository
-Create a feature branch (git checkout -b feature-branch)
-Commit your changes (git commit -m 'Add a feature')
-Push to the branch (git push origin feature-branch)
-Open a pull request
+We welcome contributions! To contribute:
+
+Fork the repository.
+Create a new branch:
+bash
+Kopier kode
+git checkout -b feature-branch
+Commit your changes:
+bash
+Kopier kode
+git commit -m 'Add a new feature'
+Push to the branch:
+bash
+Kopier kode
+git push origin feature-branch
+Open a pull request.
 License
 This project is licensed under the MIT License.
 
 Contact
-For any questions or feedback, feel free to reach out via [robfil50219@stud.noroff.no].
+For any questions or feedback, feel free to reach out at: robfil50219@stud.noroff.no.
+
+
