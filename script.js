@@ -73,7 +73,7 @@ async function placeBid(listingId) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}` // Include the token in the Authorization header
+                'Authorization': `Bearer ${token}` 
             },
             body: JSON.stringify({ amount: bidAmount })
         });
@@ -83,7 +83,6 @@ async function placeBid(listingId) {
         }
 
         alert("Bid placed successfully!");
-        // Optionally, refresh listings or update the UI to show the new bid count
         fetchListings();
     } catch (error) {
         console.error("Error placing bid:", error);

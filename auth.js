@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const token = localStorage.getItem('authToken');
   
     try {
-      const response = await fetch('https://v2.api.noroff.dev/auction/profiles/me', {
+      const response = await fetch('https://v2.api.noroff.dev/auction/profiles', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',

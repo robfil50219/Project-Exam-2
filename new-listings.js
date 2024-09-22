@@ -1,38 +1,39 @@
 document.getElementById('new-listing-form').addEventListener('submit', async function (event) {
-  event.preventDefault(); // Prevent default form submission
+  event.preventDefault(); // Prevent form submission
 
-  const token = localStorage.getItem('authToken'); // Retrieve token from local storage
-
+  const token = localStorage.getItem('authToken'); // Assuming user is logged in and token is stored
   if (!token) {
       alert('You need to be logged in to create a listing.');
       window.location.href = 'login.html';
       return;
   }
 
-  // Gather form data
   const title = document.getElementById('title').value;
   const description = document.getElementById('description').value;
-  const tags = document.getElementById('tags').value.split(',').map(tag => tag.trim());
   const media = document.getElementById('media').value;
   const endsAt = document.getElementById('end-date').value;
 
   const listingData = {
       title: title,
       description: description,
-      tags: tags,
-      media: media ? [media] : [], // Ensure media is an array
-      endsAt: new Date(endsAt).toISOString() // Convert to ISO date format
+      endsAt: endsAt,
+      media: media ? [media] : [],
+      tags: []
   };
 
   try {
       const response = await fetch('https://v2.api.noroff.dev/auction/listings', {
           method: 'POST',
           headers: {
-              'Authorization': `Bearer ${token}`, // Pass token in Authorization header
+              'Authorization': `Bearer ${token}`,  // Correct authentication header
               'Content-Type': 'application/json'
           },
-          body: JSON.stringify(listingData) // Send the listing data as JSON
+          body: JSON.stringify(listingData)
       });
+
+      if (response.status === 401) {
+          throw new Error('Unauthorized: Token may be invalid or expired.');
+      }
 
       if (!response.ok) {
           throw new Error('Failed to create listing');
